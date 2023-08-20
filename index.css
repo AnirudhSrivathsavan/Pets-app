@@ -43,45 +43,7 @@ header .header-1{
     text-align: center;
     background-image: repeating-radial-gradient(farthest-side at 1px 1px,#3c899a, #c82c0d, #553c9a);
 }
-/* 
-.sidebar {
-    width: 180px;
-    position: -webkit-sticky; 
-    position: sticky;
-    top: 0px;
-    float: left;
-    background-color: rgb(251, 230, 230);
-    border: gray solid 2px;
-    border-radius: 10%;
-}
 
-.sidebar div {
-    padding: 8px;
-    font-size: 24px;
-    display: block;
-}
-
-.float{
-	position:fixed;
-	top:240px;
-	left:-60px;
-    padding: 0px 20px;
-	background-color:rgba(255, 21, 21, 0.562);
-	color:#FFF;
-	border-radius:10px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-    -webkit-transform: rotate(270deg);   
-    -moz-transform: rotate(270deg);   
-    -ms-transform: rotate(270deg);   
-    -o-transform: rotate(270deg);   
-    transform: rotate(270deg);   
-    z-index: 9;
-}
-
-.my-float{
-	margin-top:22px;
-} */
 html {
     box-sizing: border-box;
   }
@@ -122,7 +84,7 @@ html {
     width: 200px;
     text-align: center;
     transform: translatex(-50%);
-    z-index: 1000;
+    z-index: 8;
   
     list-style: none;
     text-align: center;
@@ -252,7 +214,7 @@ html {
     }
   }
 
-  .offcanvas-slide,.offcanvas-slide::after{
+  /* .offcanvas-slide,.offcanvas-slide::after{
     transition-duration: 700ms;
     margin: 10px 0px;
     height: 30%;
@@ -273,7 +235,7 @@ html {
 
   .offcanvas-header{
     background-color: #fe8fec7c;
-  }
+  } */
 
   .qr{
     width: min-content;
@@ -306,11 +268,22 @@ html {
   }
 
   .body{
-    position: relative;
+    justify-content: center;
+    align-items: center;
     top: -100px;
-    width: 70%;
-    margin: 50px auto;
+    width: 90%;
+    padding: 30px;
+    margin: -80px auto auto auto;
     background-color: #e8fffe;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
       0 3px 1px -6px rgba(0, 0, 0, 0.2);
   }
+
+  .body form{
+    margin: 50px 100px;
+  }
+
+  .body form *{
+    margin: 2PX;
+  }
+

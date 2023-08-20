@@ -14,6 +14,7 @@
     </header>
     <hr>
     <br>
+    
 
     <div class="fluid-container">
         <div class="row">
@@ -59,38 +60,61 @@
             </div>
         </div>
     </div>
-<!--     
-    <div href="#" class="float">
-        <i class="fa fa-plus my-float"></i>
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">ACTION BAR</button>
 
-    </div>
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Action bar</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="offcanvas-slide">
-
-            </div>
-            <div class="offcanvas-slide">
-
-            </div>
-            <div class="offcanvas-slide">
-                
-            </div>
-        </div>
-    </div>
-     -->
       <div class="fluid-container body">
-            <h1>Heloo</h1>
+            <div class="row">
+              <div class="col">
+                <h1>Search for services</h1>
+              </div>
+            </div>
+           
+                <div class="form-container">
+                  <form>
+                      <label for="zipcode">Zipcode:</label>
+                      <input type="text" id="zipcode" name="zipcode" placeholder="Enter zipcode" required>
+          
+                      <label for="services">Services:</label>
+                      <select id="services" name="services" required>
+                          <option value="" disabled selected>Select a service</option>
+                          <option value="service1">Service 1</option>
+                          <option value="service2">Service 2</option>
+                          <option value="service3">Service 3</option>
+                      </select>
+          
+                      <label for="animal-category">Animal Category:</label>
+                      <select id="animal-category" name="animal-category" required>
+                          <option value="" disabled selected>Select an animal category</option>
+                          <option value="cats">Cats</option>
+                          <option value="dogs">Dogs</option>
+                          <option value="birds">Birds</option>
+                          <option value="others">Others</option>
+                      </select>
+          
+                      <input type="submit" value="Submit">
+                  </form>
+            
+            </div>
       </div>
-
+      <div class="row">
+        <div class="col">
+          Send your story to us
+        </div>
+        <div class="col">
+          Add your service
+        </div>
+        <div class="col">
+          Rate
+        </div>
+        <div class="col">
+          Advertize with us
+        </div>
+      </div>
       <div class="qr" style="align-items: center;">
-        <p class="row" style="font-size: xx-small; ">
-          &ensp; GET OUR OWN PETS' APP</p>
+        <div class="row" style="font-size: xx-small; ">
+          <div class="col qrtext">
+          GET OUR PETS' APP</div>
+          <div class="col">
         <img src="assets/qrcode.png" alt="QR unavailable" width="100" height="100">
-
+</div>
       </div>
 </html>
