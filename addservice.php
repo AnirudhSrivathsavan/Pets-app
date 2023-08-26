@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +20,7 @@
         <h1 class="header-1">PET WEBSITE</h1>
     </header>
     <hr>
-    <br>
-
-
+    <br> 
     <div class="fluid-container">
         <div class="row">
             <div class="col slidebutton">
@@ -79,7 +77,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-container">
-                    <form action="code/addservice_form.php" method="post" enctype="multipart/form-data">
+                    <form action="addservice.php" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
                                 <label for="name">Name:</label>
@@ -241,6 +239,8 @@
             </div>
         </div>
     </div>
+
+   
     
     <div class="qr" style="align-items: center;">
         <div class="row" style="font-size: xx-small; ">
@@ -250,5 +250,50 @@
                 <img src="assets/qrcode.png" alt="QR unavailable" width="100" height="100">
             </div>
         </div>
+    <div class="row">
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            addservices(); // Call the function if the form is submitted
+        }
+        function addservices(){
+            require_once('code/config.php'); 
+            $sql = "SELECT MAX(Id) AS MaxId FROM placedata";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $maxId = $row["MaxId"]+1;
+            } else {
+                $maxID = 1;
+            }
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $name = $_POST["name"];
+                $address = $_POST["address"];
+                $state = $_POST["state"];
+                $zipcode = $_POST["zipcode"];
+                $byline = $_POST["byline"];
+                $phone = $_POST["phone"];
+                $image = $_FILES["image"]["name"];
+                if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
+                    $image_name = $_FILES["image"]["name"];
+                    $image_tmp = $_FILES["image"]["tmp_name"]; 
+                    //$image_size = $_FILES["image"]["size"];    
+                    //$image_type = $_FILES["image"]["type"];    
+                    move_uploaded_file($image_tmp, "images/img" . $maxId.".jpeg");
+                }
+                $avail = $_POST["avail"];
+                $service = $_POST["service"];
+                $animal = $_POST["animal"];
+                $imgpath = "images/img" . $maxId.".jpeg";
+                $sql = "INSERT INTO placedata ( Address, State, `Zip code`, Byline, Phone, imgpath, Avail, Service, Animal, Verified)
+                VALUES ('$name', '$address', '$state', $zipcode, '$byline', '$phone', '$imgpath', '$avail', $service, $animal, 0)";
 
+                if ($conn->query($sql) === TRUE) {
+                    echo "<script>alert('Service has been edited and will be visible after verification')</script>";
+                } else {
+                    echo "<script>alert('Error! $sql . <br> . $conn->error.')</script>";
+                }
+            }
+        }
+    ?>
+    </div>
 </html>
