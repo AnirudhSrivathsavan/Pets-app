@@ -9,7 +9,10 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("isi", $zipcode, $service, $animalCategory);
 $stmt->execute();
 $searchResults = $stmt->get_result();
-echo $searchResults->num_rows;
+if($searchResults->num_rows==0)
+    echo '<script>alert("No entries found")</script>';
+else{
+    echo '<h1>Results</h1>';
 while ($result = $searchResults->fetch_assoc()) {
     echo '<div class="row">';
     echo '<div class="col">';
@@ -24,5 +27,5 @@ while ($result = $searchResults->fetch_assoc()) {
     echo '</div>';
     echo '</div>';
     echo '<hr>';
-}
+}}
 ?>

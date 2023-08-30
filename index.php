@@ -158,7 +158,6 @@ $(document).ready(function() {
         </div>
         <hr>
         <div class="result-div">
-            <h1>Results</h1>
             <div class="result-entry">
                 <!-- Dynamic entry section -->
                 </div>

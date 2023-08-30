@@ -284,13 +284,15 @@
                 $service = $_POST["service"];
                 $animal = $_POST["animal"];
                 $imgpath = "images/img" . $maxId.".jpeg";
-                $sql = "INSERT INTO placedata (Name, Address, State, `Zip code`, Byline, Phone, imgpath, Avail, Service, Animal,Verified) VALUES ('$name', '$address', '$state', $zipcode, '$byline', '$phone', '$imgpath', '$avail', $service, $animal, 0)";    
-
-                if ($conn->query($sql) === TRUE) {
+                $sql = "INSERT INTO placedata (Name, Address, State, `Zip code`, Byline, Phone, imgpath, Avail, Service, Animal, Verified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ssssisssiii", $name, $address, $state, $zipcode, $byline, $phone, $imgpath, $avail, $service, $animal);
+                if ($stmt->execute()) {
                     echo "<script>alert('Service has been edited and will be visible after verification')</script>";
                 } else {
                     echo "<script>alert('Error! $sql . <br> . $conn->error.')</script>";
                 }
+                $stmt->close();
             }
         }
     ?>
