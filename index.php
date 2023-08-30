@@ -1,6 +1,8 @@
 <?php 
-require_once('code/config.php'); 
+require_once('code\config.php'); 
 ?>
+
+<!-- https://localhost/petsapp/Pets-app/ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,34 @@ require_once('code/config.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="code/formvalidator.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#search').submit(function(e) {
+        e.preventDefault(); // Prevent the form from submitting
+
+        // Get user input values
+        var zipcode = $('#zipcode').val();
+        var services = $('#services').val();
+        var animalCategory = $('#animal-category').val();
+
+        // Send AJAX request to a PHP script for processing
+        $.ajax({
+            type: 'POST',
+            url: 'code/process_search.php', // Replace with your PHP script URL
+            data: {
+                zipcode: zipcode,
+                services: services,
+                animalCategory: animalCategory
+            },
+            success: function(response) {
+                // Display the results in the result-entry div
+                $('.result-entry').html(response);
+            }
+        });
+    });
+});
+</script>
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -121,28 +151,10 @@ require_once('code/config.php');
             </div>
         </div>
         <hr>
-        <h1>Results</h1>
-        <div class="resultdiv">
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <h4>Name</h4>
-                    </div>
-                    <div class="row">
-                        Byline
-                    </div>
-                    <div class="row">
-                        Availability
-                    </div>
-                    <div class="row">
-                        Address
-                    </div>
-                    <div class="row">
-                        State, zipcode
-                    </div>
-                    <div class="row">
-                        
-                    </div>
+        <div class="result-div">
+            <h1>Results</h1>
+            <div class="result-entry">
+                <!-- Dynamic entry section -->
                 </div>
             </div>
         </div>
@@ -171,3 +183,4 @@ require_once('code/config.php');
         </div>
 
 </html>
+

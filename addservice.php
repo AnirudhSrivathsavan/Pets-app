@@ -284,8 +284,7 @@
                 $service = $_POST["service"];
                 $animal = $_POST["animal"];
                 $imgpath = "images/img" . $maxId.".jpeg";
-                $sql = "INSERT INTO placedata ( Address, State, `Zip code`, Byline, Phone, imgpath, Avail, Service, Animal, Verified)
-                VALUES ('$name', '$address', '$state', $zipcode, '$byline', '$phone', '$imgpath', '$avail', $service, $animal, 0)";
+                $sql = "INSERT INTO placedata (Name, Address, State, `Zip code`, Byline, Phone, imgpath, Avail, Service, Animal,Verified) VALUES ('$name', '$address', '$state', $zipcode, '$byline', '$phone', '$imgpath', '$avail', $service, $animal, 0)";    
 
                 if ($conn->query($sql) === TRUE) {
                     echo "<script>alert('Service has been edited and will be visible after verification')</script>";
