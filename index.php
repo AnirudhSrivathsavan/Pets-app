@@ -1,5 +1,11 @@
 <?php 
 require_once('code\config.php'); 
+$folderPath = '.\images';
+
+if (!is_dir($folderPath)) {
+    mkdir($folderPath, 0777, true);
+}
+
 ?>
 
 <!-- https://localhost/petsapp/Pets-app/ -->
