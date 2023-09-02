@@ -12,20 +12,21 @@ $searchResults = $stmt->get_result();
 if($searchResults->num_rows==0)
     echo '<script>alert("No entries found")</script>';
 else{
-    echo '<h1>Results</h1>';
+    echo '<h1>RESULTS</h1>';
 while ($result = $searchResults->fetch_assoc()) {
-    echo '<div class="row">';
-    echo '<div class="col">';
-    echo '<div class="row"><h4>' . $result['Name'] . '</h4></div>';
-    echo '<div class="row">' . $result['Byline'] . '</div>';
-    echo '<div class="row">' . $result['Phone'] . '</div>';
-    echo '<div class="row">' . $result['Address'] . '</div>';
-    echo '<div class="row">' . $result['State'] . ', ' . $result['Zip code'] . '</div>';
-    echo '</div>';
-    echo '<div class="col">';
-    echo '<img src="'.$result['imgpath'].'" alt="" height="150" width="150">';
-    echo '</div>';
-    echo '</div>';
-    echo '<hr>';
+echo '<hr><div class="row indresults">
+        <div class="row"><h4 style="text-transform: uppercase;">' . $result['Name'] . '</h4></div>
+        <div class="row">
+            <div class="col-8">
+                <div class="row"><i>' . $result['Byline'] . '</i></div>
+                <div class="row"><div class="col-1"><img src="assets\telephone.svg" height = "20"></div><div class="col">' . $result['Phone'] . '</div></div>
+                <div class="row"><div class="col-1"><img src="assets\geo-fill.svg" height = "20"></div><div class="col">' . nl2br($result['Address']) . '</div></div>
+                <div class="row"><div class="col-1"></div><div class="col">' . $result['State'] . ', ' . $result['Zip code'] . '</div></div>
+                <div class="row"><div class="col-1"><img src="assets\clock-fill.svg" height = "20"></div><div class="col">' . nl2br($result['Avail']) . '</div></div>
+            </div>
+            <div class="col">
+                <img src="'.$result['imgpath'].'" alt="" height="180" width="180" style="border-radius:30%;">
+            </div></div>
+        </div>';
 }}
 ?>

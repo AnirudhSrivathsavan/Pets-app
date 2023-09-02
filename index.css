@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Asap&family=Roboto:ital,wght@0,500;0,900;1,500&display=swap");
 body {
-    margin: 100px 0px 0px 0px;
+    margin: 170px 0px 0px 0px;
     padding: 0px 0px 10px 0px;
     font-family: "Asap", sans-serif;
     background-color: #e9e9ff;
@@ -11,6 +11,7 @@ body {
 }
 
 header {
+    padding: 9px 30px;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -21,30 +22,10 @@ header {
     background-image: linear-gradient(to right, rgba(3, 205, 212, 0.312), white);
     z-index: 9;
 }
-
-header>h1 {
-    position: relative;
-    width: 100%;
-    font-size: 101px;
-    font-weight: 600;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-color: #c82c0d;
-}
-
-header+hr {
-    position: fixed;
-    top: 100px;
-    margin: -1px;
-    padding: 5px;
-    background-color: rgba(157, 157, 157, 0.785);
-    border: 0ch;
-}
-
-header .header-1 {
-    text-align: center;
-    background-image: repeating-radial-gradient(farthest-side at 1px 1px, #3c899a, #c82c0d, #553c9a);
+header .row .co{
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
 }
 
 html {
@@ -71,7 +52,6 @@ html {
 .slider {
     position: relative;
     top: -50px;
-    /* width: 150vh; */
     height: 200px;
     margin: 50px -12px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -6px rgba(0, 0, 0, 0.2);
@@ -83,7 +63,6 @@ html {
     position: absolute;
     bottom: 0px;
     left: 50%;
-    width: 200px;
     text-align: center;
     transform: translatex(-50%);
     z-index: 8;
@@ -96,15 +75,13 @@ html {
     top: 0;
     left: 0;
     opacity: 0;
-    width: 20px;
-    height: 20px;
+
 }
 
 .slider-controls label {
     display: inline-block;
     border: none;
-    height: 20px;
-    width: 20px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
     background-color: #212121;
@@ -248,9 +225,15 @@ html {
     bottom: 20px;
 }
 
-.qr+img {
-    position: fixed;
-    right: 0px;
+.qr .qrtext {
+    padding: 0px auto;
+    margin: 3px 0px;
+    text-decoration:underline;
+    font-weight: bolder;
+}
+
+.qr img{
+    margin: 10px 0px 0px 0px ;
 }
 
 .slidebutton {
@@ -271,7 +254,7 @@ html {
     justify-content: center;
     align-items: center;
     top: -100px;
-    width: 90%;
+    width: 67%;
     padding: 30px 130px;
     margin: -80px auto auto auto;
     background-color: #e8fffe;
@@ -279,7 +262,7 @@ html {
 }
 
 .body form {
-    margin: 20px 100px;
+    margin: 20px 80px;
 }
 
 .body form * {
@@ -298,4 +281,8 @@ html {
 
 label{
     padding-right: 30px;
+}
+
+.indresults{
+    padding: 0% 5%;
 }

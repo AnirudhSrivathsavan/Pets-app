@@ -28,4 +28,3 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedButton.checked = true;
     }, 5000);
 });
-
