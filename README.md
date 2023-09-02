@@ -10,4 +10,4 @@ Ensure internet is connected for proper functioning of Bootstrap components
 
 Feel free to report any bugs through the following means:
     anirudhsrivathsavan@gmail.com
-    
+    https://github.com/AnirudhSrivathsavan/Pets-app/issues
